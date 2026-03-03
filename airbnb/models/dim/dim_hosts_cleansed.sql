@@ -1,4 +1,8 @@
 -- cleaning layer on top of src_hosts
+{{ config(
+    materialized = 'view'
+)
+}}
 with hosts_cleansed as (
     select * from {{ref('src_hosts')}}
 )

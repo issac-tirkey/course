@@ -1,4 +1,9 @@
 -- # cleansing layer on top of src_listing view/sql
+{{ config(
+    materialized = 'view'
+)
+}}
+
 WITH src_listings as (
     select * from {{ref('src_listings')}}   --dbt template tag
 )
